@@ -43,6 +43,9 @@ if [ -f "$CRUISE_CONFIG" ]; then
     echo -n "Updating existing go-server configuration file with AGENT_KEY..."
     xmlstarlet ed --inplace -u /cruise/server/@agentAutoRegisterKey -v ${AGENT_KEY} "$CRUISE_CONFIG"
   fi
+elif [ ! -z "$CRUISE_URL" ]; then
+  echo -n "No go-server configuration file found, we download a new one"  
+  curl -o ${CRUISE_CONFIG} ${CRUISE_URL}
 else
     echo -n "No go-server configuration file found, creating default config..."
 
