@@ -8,7 +8,7 @@ RUN apk --no-cache --update add \
   bash \
   curl \
   git \
-  openjdk8-jre \
+  openjdk7-jre \
   subversion \
   xmlstarlet \
   && rm -rf /var/cache/apk/*
